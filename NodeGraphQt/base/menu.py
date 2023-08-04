@@ -243,7 +243,10 @@ class NodeGraphCommand(object):
     def __init__(self, graph, qaction, func=None):
         self._graph = graph
         self._qaction = qaction
-        self._name = qaction.text()
+        if qaction is not None:
+            self._name = qaction.text()
+        else:
+            self._name = "Unnamed Command"
         self._func = func
 
     def __repr__(self):
